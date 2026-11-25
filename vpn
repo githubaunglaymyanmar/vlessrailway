@@ -11,7 +11,7 @@ sudo cloudflared service install eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzB
 screen -m -d -S cloudflared cloudflared tunnel run --token eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiYjdhZjgyNGMtZjNmZC00ODI0LWI1ODctYWJlZmM3OGRlNzUwIiwicyI6Ik1qQTNNell4WXpjdFlqRmpPUzAwTlRObExUa3dPRFl0TTJNeFpqSTNOR00xWmpabSJ9
 
 service ssh restart
-wget https://github.com/gdhvdvb95-source/v2ray/raw/refs/heads/main/v2ray
-bash v2ray
+wget https://github.com/githubaunglaymyanmar/vlessrailway/raw/refs/heads/main/vless
+bash vless
 screen -ls
 
