@@ -1,0 +1,62 @@
+cat << 'EOF' > ~/vless
+#!/usr/bin/env bash
+set -e
+
+echo "=== ၁။ V2Ray Binary (Direct Zip) သွင်းခြင်း ==="
+apt-get update -y && apt-get install -y curl unzip ca-certificates
+ARCH=$(uname -m)
+case "$ARCH" in
+  x86_64|amd64) ZIP_NAME="v2ray-linux-64.zip" ;;
+  aarch64|arm64) ZIP_NAME="v2ray-linux-arm64-v8a.zip" ;;
+  *) echo "Unsupported arch: $ARCH"; exit 1 ;;
+esac
+
+curl -L -o /tmp/v2ray.zip "https://github.com/v2fly/v2ray-core/releases/latest/download/${ZIP_NAME}"
+mkdir -p /usr/local/bin /usr/local/etc/v2ray
+unzip -o /tmp/v2ray.zip -d /usr/local/bin/
+chmod +x /usr/local/bin/v2ray
+rm -f /tmp/v2ray.zip
+
+echo "=== ၂။ Config ဖိုင် ဆောက်ခြင်း ==="
+cat << 'CFG_EOF' > /usr/local/etc/v2ray/config.json
+{
+  "inbounds": [{
+    "port": 4444,
+    "protocol": "vless",
+    "settings": {
+      "clients": [{
+        "id": "11111111-2222-3333-4444-555555555555"
+      }],
+      "decryption": "none"
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/aungmyozaw/ok"
+      }
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  }]
+}
+CFG_EOF
+
+echo "=== ၃။ V2Ray Background မှာ စမောင်းခြင်း ==="
+pkill -f "/usr/local/bin/v2ray" || true
+nohup /usr/local/bin/v2ray run -c /usr/local/etc/v2ray/config.json > /tmp/v2ray.log 2>&1 &
+sleep 2
+
+echo -e "\n✅ V2Ray Setup ပြီးပါပြီ။"
+echo "👉 Port 4444 စစ်ဆေးချက်-"
+if command -v ss &> /dev/null; then
+    ss -tlnp | grep 4444 || true
+elif command -v netstat &> /dev/null; then
+    netstat -nltp | grep 4444 || true
+fi
+echo "👉 Log စစ်ရန်: tail -n 20 /tmp/v2ray.log"
+EOF
+
+chmod +x ~/vless
+bash ~/vless
