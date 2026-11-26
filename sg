@@ -5,11 +5,14 @@ curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/relea
 sudo dpkg -i cloudflared.deb
 # 3. Cloudflare Tunnel ကို Service အဖြစ် Run ခြင်း
 # (မှတ်ချက် - <YOUR_TOKEN> နေရာတွင် သင်၏ Token ကို ပြောင်းထည့်ပါ)
-sudo cloudflared service install eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiYjhkMWRmM2UtMjE2Ny00NGU2LWE1ZWUtYjJhODVkMzU4Njg0IiwicyI6IlpXUXdZamxtTVRZdFkyWmlOQzAwWm1JNExXSmtNRE10WkRSak1tWTFPVGd4TlRrMiJ9
 
 
+sudo cloudflared service install eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiMWE2ZGM5ZDctMGY4Ny00NDNkLWEyNjQtZGViZWRmYzRlMzM5IiwicyI6Ik5UTmxNVE0yT1RrdFlUZ3hOQzAwT0dJeExXRXlNalV0TXpoaE1XRXhNVFl3TUdVMyJ9
 
-screen -m -d -S cloudflared cloudflared tunnel run --token eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiYjhkMWRmM2UtMjE2Ny00NGU2LWE1ZWUtYjJhODVkMzU4Njg0IiwicyI6IlpXUXdZamxtTVRZdFkyWmlOQzAwWm1JNExXSmtNRE10WkRSak1tWTFPVGd4TlRrMiJ9
+
+screen -m -d -S cloudflared cloudflared tunnel run --token eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiMWE2ZGM5ZDctMGY4Ny00NDNkLWEyNjQtZGViZWRmYzRlMzM5IiwicyI6Ik5UTmxNVE0yT1RrdFlUZ3hOQzAwT0dJeExXRXlNalV0TXpoaE1XRXhNVFl3TUdVMyJ9
+
+
 
 service ssh restart
 wget https://github.com/githubaunglaymyanmar/vlessrailway/raw/refs/heads/main/vless1
