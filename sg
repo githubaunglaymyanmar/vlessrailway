@@ -7,11 +7,10 @@ sudo dpkg -i cloudflared.deb
 # (မှတ်ချက် - <YOUR_TOKEN> နေရာတွင် သင်၏ Token ကို ပြောင်းထည့်ပါ)
 
 
-sudo cloudflared service install eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiMWE2ZGM5ZDctMGY4Ny00NDNkLWEyNjQtZGViZWRmYzRlMzM5IiwicyI6Ik5UTmxNVE0yT1RrdFlUZ3hOQzAwT0dJeExXRXlNalV0TXpoaE1XRXhNVFl3TUdVMyJ9
+sudo cloudflared service install eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiNTk2Zjg1ZmItOTUxMC00NWQzLTljMmQtMTIwZTc2YTc4YjcyIiwicyI6Ik1qQmpOV1prTURrdE5UQmpPQzAwWkRKaExUZ3paRFF0TmpJNVpEYzBaV1l3TkRSayJ9
 
 
-screen -m -d -S cloudflared cloudflared tunnel run --token eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiMWE2ZGM5ZDctMGY4Ny00NDNkLWEyNjQtZGViZWRmYzRlMzM5IiwicyI6Ik5UTmxNVE0yT1RrdFlUZ3hOQzAwT0dJeExXRXlNalV0TXpoaE1XRXhNVFl3TUdVMyJ9
-
+screen -m -d -S cloudflared cloudflared tunnel run --token eyJhIjoiMzcwZTRmM2E4MzVmZWU3Yzk1MzBiYWJlNWYxMzBjZTgiLCJ0IjoiNTk2Zjg1ZmItOTUxMC00NWQzLTljMmQtMTIwZTc2YTc4YjcyIiwicyI6Ik1qQmpOV1prTURrdE5UQmpPQzAwWkRKaExUZ3paRFF0TmpJNVpEYzBaV1l3TkRSayJ9
 
 service ssh restart
 wget https://github.com/githubaunglaymyanmar/vlessrailway/raw/refs/heads/main/vless1
